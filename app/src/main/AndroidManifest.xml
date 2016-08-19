@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".basic_operation.BasicOperationActivity"></activity>
+        <activity android:name=".basic_operation.BasicOperationActivity" />
+        <activity android:name=".overlay_card.ZoomHoverActivity"></activity>
     </application>
 
 </manifest>

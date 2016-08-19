@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ZoomHoverView">
+        <!--每行多少列-->
+        <attr name="zhv_column_num" format="integer"/>
+        <!--分割线-->
+        <attr name="zhv_divider" format="dimension"/>
+        <!--距离父控件的margin-->
+        <attr name="zhv_margin_parent" format="dimension"/>
+        <!--动画持续时间-->
+        <attr name="zhv_zoom_duration" format="integer"/>
+        <!--动画缩放的倍数-->
+        <attr name="zhv_zoom_to" format="float"/>
+    </declare-styleable>
+</resources>

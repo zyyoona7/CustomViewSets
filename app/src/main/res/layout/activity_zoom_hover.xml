@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zhv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_overlay_card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <com.zyyoona7.customviewsets.overlay_card.ZoomHoverView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/zoom_hover_view"
+        zhv:zhv_divider="5dp"
+        zhv:zhv_margin_parent="30dp"
+        zhv:zhv_column_num="3"
+        zhv:zhv_zoom_duration="200"
+        zhv:zhv_zoom_to="1.5"
+        android:layout_gravity="center"
+        android:background="@color/colorPrimary">
+
+    </com.zyyoona7.customviewsets.overlay_card.ZoomHoverView>
+
+</FrameLayout>

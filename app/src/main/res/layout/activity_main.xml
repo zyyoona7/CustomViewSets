@@ -15,4 +15,10 @@
         android:id="@+id/btn_basic_operation"
         android:text="Basic Operation"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_overlay_card"
+        android:text="Zoom Hover"/>
+
 </LinearLayout>
