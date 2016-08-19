@@ -14,7 +14,7 @@ import java.util.List;
 
 public abstract class ZoomHoverAdapter<T> {
 
-    private List<T> mCardList;
+    private List<T> mDataList;
 
     //存储需要横跨的下标和跨度
     private SimpleArrayMap<Integer, Integer> mSpanMap = new SimpleArrayMap<>();
@@ -32,11 +32,11 @@ public abstract class ZoomHoverAdapter<T> {
 
 
     public ZoomHoverAdapter(List<T> list) {
-        this.mCardList = list;
+        this.mDataList = list;
     }
 
     public ZoomHoverAdapter(T[] datas) {
-        this.mCardList = new ArrayList<>(Arrays.asList(datas));
+        this.mDataList = new ArrayList<>(Arrays.asList(datas));
     }
 
     /**
@@ -86,7 +86,7 @@ public abstract class ZoomHoverAdapter<T> {
      * @return
      */
     public int getCount() {
-        return mCardList == null ? 0 : mCardList.size();
+        return mDataList == null ? 0 : mDataList.size();
     }
 
     /**
@@ -96,10 +96,10 @@ public abstract class ZoomHoverAdapter<T> {
      * @return
      */
     public T getItem(int position) {
-        if (mCardList == null) {
+        if (mDataList == null) {
             return null;
         } else {
-            return mCardList.get(position);
+            return mDataList.get(position);
         }
     }
 

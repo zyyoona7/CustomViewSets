@@ -42,8 +42,9 @@ public class ZoomHoverView extends RelativeLayout implements View.OnClickListene
     //记录当前行
     private int mCurrentRow = 1;
 
-    //记录每行第一列的下标（First column position）
-    private SimpleArrayMap<Integer, Integer> mFColPosMap = new SimpleArrayMap<>();
+    //记录每行第一列的下标（row First column position）
+    //K--所在行数   V--当前view的下标
+    private SimpleArrayMap<Integer, Integer> mRFColPosMap = new SimpleArrayMap<>();
 
     //子view距离父控件的外边距宽度
     private int mMarginParent = 20;
@@ -98,12 +99,6 @@ public class ZoomHoverView extends RelativeLayout implements View.OnClickListene
         mZoomOutInterpolator = mZoomInInterpolator = new AccelerateDecelerateInterpolator();
     }
 
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
-
     /**
      * 设置适配器
      *
@@ -126,7 +121,7 @@ public class ZoomHoverView extends RelativeLayout implements View.OnClickListene
         mColumnNum = 3;
         mCurrentRow = 1;
         mCurrentColumn = 0;
-        mFColPosMap.clear();
+        mRFColPosMap.clear();
 
         mViewList = new ArrayList<>(mZoomHoverAdapter.getCount());
         //需要拉伸的下标的参数K-下标，V-跨度
@@ -178,12 +173,12 @@ public class ZoomHoverView extends RelativeLayout implements View.OnClickListene
                 //当前列等于当前view的跨度
                 mCurrentColumn = span;
                 //换行以后肯定是第一个
-                mFColPosMap.put(mCurrentRow, i);
+                mRFColPosMap.put(mCurrentRow, i);
                 //换行操作
                 //因为换行，肯定不是第一行
                 //换行操作后将当前view添加到上一行第一个位置的下面
                 childViewParams.addRule(RelativeLayout.BELOW,
-                        mViewList.get(mFColPosMap.get(mCurrentRow - 1)).getId());
+                        mViewList.get(mRFColPosMap.get(mCurrentRow - 1)).getId());
                 //不是第一行，所以上边距为分割线的宽度
                 topMargin = mDivider;
                 //换行后位置在左边第一个，所以左边距为距离父控件的边距
@@ -191,7 +186,7 @@ public class ZoomHoverView extends RelativeLayout implements View.OnClickListene
             } else {
                 if (mCurrentColumn <= 0 && mCurrentRow <= 1) {
                     //第一行第一列的位置保存第一列信息，同时第一列不需要任何相对规则
-                    mFColPosMap.put(mCurrentRow, i);
+                    mRFColPosMap.put(mCurrentRow, i);
                     //第一行第一列上边距和左边距都是距离父控件的边距
                     topMargin = mMarginParent;
                     leftMargin = mMarginParent;
@@ -391,7 +386,7 @@ public class ZoomHoverView extends RelativeLayout implements View.OnClickListene
      *
      * @param interpolator
      */
-    public void setInterpolator(Interpolator interpolator) {
+    public void setZoomInterpolator(Interpolator interpolator) {
         this.mZoomInInterpolator = this.mZoomOutInterpolator = interpolator;
     }
 
@@ -422,6 +417,10 @@ public class ZoomHoverView extends RelativeLayout implements View.OnClickListene
         this.mOnItemSelectedListener = listener;
     }
 
+    /**
+     * 设置选中的条目
+     * @param position
+     */
     public void setSelectedItem(int position) {
         //list为空或者size<position不执行操作
         if (mViewList == null || mViewList.size() <= position) {
@@ -445,6 +444,46 @@ public class ZoomHoverView extends RelativeLayout implements View.OnClickListene
                 mOnItemSelectedListener.onItemSelected(mCurrentView, mCurrentView.getId() - 1);
             }
         }
+    }
+
+    /**
+     * 设置动画持续时长
+     * @param duration
+     */
+    public void setZoomDuration(int duration){
+        this.mAnimDuration=duration;
+    }
+
+    /**
+     * 设置放大的倍数
+     * @param zoomTo
+     */
+    public void setZoomTo(float zoomTo){
+        this.mAnimZoomTo=zoomTo;
+    }
+
+    /**
+     * 设置列数
+     * @param columnNum
+     */
+    public void setColumnNum(int columnNum){
+        this.mColumnNum=columnNum;
+    }
+
+    /**
+     * 设置分割线宽度
+     * @param divider
+     */
+    public void setZoomDivider(int divider){
+        this.mDivider=DensityUtils.dip2px(getContext(),divider);
+    }
+
+    /**
+     * 设置距离父边框的宽度
+     * @param marginParent
+     */
+    public void setZoomMarginParent(int marginParent){
+        this.mMarginParent=DensityUtils.dip2px(getContext(),marginParent);
     }
 
     /**
