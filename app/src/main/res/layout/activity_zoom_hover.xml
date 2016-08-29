@@ -1,27 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:zhv="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:zhv="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_overlay_card"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <com.zyyoona7.customviewsets.overlay_card.ZoomHoverView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/zoom_hover_view"
-        zhv:zhv_divider="5dp"
-        zhv:zhv_margin_parent="30dp"
-        zhv:zhv_column_num="3"
-        zhv:zhv_zoom_duration="200"
-        zhv:zhv_zoom_to="1.5"
-        android:layout_gravity="center"
-        android:background="@color/colorPrimary">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-    </com.zyyoona7.customviewsets.overlay_card.ZoomHoverView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-</FrameLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:text="继承自GridLayout实现"
+                    android:textColor="@android:color/black" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <com.zyyoona7.customviewsets.zoom_hover.ZoomHoverGridView
+                        android:id="@+id/zoom_hover_grid_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorPrimary"
+                        zhv:zhv_column_num="7"
+                        zhv:zhv_divider="5dp"
+                        zhv:zhv_margin_parent="50dp"
+                        zhv:zhv_zoom_duration="200"
+                        zhv:zhv_zoom_to="1.5"
+                        zhv:zhv_use_baseWH="true"
+                        zhv:zhv_base_width="70dp"
+                        zhv:zhv_base_height="70dp">
+
+                    </com.zyyoona7.customviewsets.zoom_hover.ZoomHoverGridView>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="10dp"
+                    android:text="继承自RelativeLayout实现"
+                    android:textColor="@android:color/black" />
+
+                <com.zyyoona7.customviewsets.zoom_hover.ZoomHoverView
+                    android:id="@+id/zoom_hover_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:layout_gravity="center"
+                    zhv:zhv_column_num="5"
+                    zhv:zhv_divider="5dp"
+                    zhv:zhv_margin_parent="30dp"
+                    zhv:zhv_zoom_duration="200"
+                    zhv:zhv_zoom_to="1.5">
+
+                </com.zyyoona7.customviewsets.zoom_hover.ZoomHoverView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

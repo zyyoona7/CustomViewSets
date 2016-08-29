@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".basic_operation.BasicOperationActivity" />
-        <activity android:name=".overlay_card.ZoomHoverActivity"></activity>
+        <activity android:name=".zoom_hover.ZoomHoverActivity" />
+        <activity android:name=".cover_flow.CoverFlowActivity" />
     </application>
 
 </manifest>

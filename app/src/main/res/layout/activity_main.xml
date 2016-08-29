@@ -21,4 +21,10 @@
         android:id="@+id/btn_overlay_card"
         android:text="Zoom Hover"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_cover_flow"
+        android:text="Cover Flow"/>
+
 </LinearLayout>
