@@ -125,4 +125,6 @@ mZoomHoverGridView.setAdapter(mAdapter);
 ###Changed
   - 新增**ZoomHoverGridView**继承自GridLayout，可以实现拉伸行和列
   - 修改添加拉伸的方法，放进了view中（原来在adapter中）
-  
+
+###Thanks
+[GridBuilder](https://github.com/Eason90/GridBuilder)
