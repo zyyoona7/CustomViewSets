@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.zyyoona7.customviewsets.basic_operation.BasicOperationActivity;
-import com.zyyoona7.customviewsets.cover_flow.CoverFlowActivity;
+import com.zyyoona7.customviewsets.custom_layout_manager.LayoutManagerActivity;
 import com.zyyoona7.customviewsets.zoom_hover.ZoomHoverActivity;
 
 import butterknife.BindView;
@@ -19,6 +19,8 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.btn_cover_flow)
     Button mBtnCoverFlow;
+    @BindView(R.id.btn_paging)
+    Button mBtnPaging;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.btn_cover_flow)
     void coverFlowBtnClick(){
-        goTo(CoverFlowActivity.class);
+        goTo(LayoutManagerActivity.class);
     }
+
 }
