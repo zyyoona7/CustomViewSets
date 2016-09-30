@@ -128,3 +128,13 @@ mZoomHoverGridView.setAdapter(mAdapter);
 
 ###Thanks
 [GridBuilder](https://github.com/Eason90/GridBuilder)
+
+###CardLayoutManager
+
+  **代码完全从[CardLayoutManager](https://github.com/qibin0506/CardLayoutManager)复制,谢谢作者**
+
+  ![CardLayoutManager](https://github.com/zyyoona7/CustomViewSets/blob/master/images/cardLayoutManager.gif)
+  
+###Horizontal Pagination RecyclerView
+
+  ![PaginationRv](https://github.com/zyyoona7/CustomViewSets/blob/master/images/paginationRv.gif)
