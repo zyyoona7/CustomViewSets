@@ -8,11 +8,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.zyyoona7.customviewsets.custom_layout_manager.LayoutManagerActivity">
-<android.support.v7.widget.RecyclerView
-    android:id="@+id/id_layout_manager_recycler_view"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    tools:context="com.zyyoona7.customviewsets.pagination_rv.LayoutManagerActivity">
 
-</android.support.v7.widget.RecyclerView>
+    <com.zyyoona7.customviewsets.pagination_rv.SnappyRecyclerView
+        android:id="@+id/id_layout_manager_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.zyyoona7.customviewsets.pagination_rv.SnappyRecyclerView>
 </RelativeLayout>

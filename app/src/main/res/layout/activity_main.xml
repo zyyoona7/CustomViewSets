@@ -22,15 +22,15 @@
         android:text="Zoom Hover" />
 
     <Button
-        android:id="@+id/btn_cover_flow"
+        android:id="@+id/btn_card_layout_manager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cover Flow" />
+        android:text="CardLayoutManager" />
 
     <Button
         android:id="@+id/btn_paging"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PAGE VIEW" />
+        android:text="HorizontalPaginationRV" />
 
 </LinearLayout>

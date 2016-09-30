@@ -18,7 +18,8 @@
         <activity android:name=".basic_operation.BasicOperationActivity" />
         <activity android:name=".zoom_hover.ZoomHoverActivity" />
         <activity android:name=".cover_flow.CoverFlowActivity" />
-        <activity android:name=".custom_layout_manager.LayoutManagerActivity"></activity>
+        <activity android:name=".pagination_rv.LayoutManagerActivity"></activity>
+        <activity android:name=".custom_layout_manager.CardActivity"></activity>
     </application>
 
 </manifest>
