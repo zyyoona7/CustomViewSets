@@ -2,7 +2,8 @@
 
 ![Basic_Opreation](https://github.com/zyyoona7/CustomViewSets/blob/master/images/basic_operation.gif)
 
-###ZoomHoverView
+### ZoomHoverView
+
 **click to zoom in and float view  点击放大悬浮的自定义View**
 
 ![ZoomHoverView](https://github.com/zyyoona7/CustomViewSets/blob/master/images/zoomhover.gif)
@@ -73,7 +74,7 @@
         //设置选中的item
         mZoomHoverView.setSelectedItem(position);
   ```
-###ZoomHoverGridView 
+### ZoomHoverGridView 
 **layout**
 ```xml
 <com.zyyoona7.customviewsets.zoom_hover.ZoomHoverGridView
@@ -122,19 +123,19 @@ mZoomHoverGridView.setAdapter(mAdapter);
         <attr name="zhv_base_height" format="dimension" />
   </declare-styleable>
   ```
-###Changed
+### Changed
   - 新增**ZoomHoverGridView**继承自GridLayout，可以实现拉伸行和列
   - 修改添加拉伸的方法，放进了view中（原来在adapter中）
 
-###Thanks
+### Thanks
 [GridBuilder](https://github.com/Eason90/GridBuilder)
 
-###CardLayoutManager
+### CardLayoutManager
 
   **代码完全从[CardLayoutManager](https://github.com/qibin0506/CardLayoutManager)复制,谢谢作者**
 
   ![CardLayoutManager](https://github.com/zyyoona7/CustomViewSets/blob/master/images/cardLayoutManager.gif)
   
-###Horizontal Pagination RecyclerView
+### Horizontal Pagination RecyclerView
 
   ![PaginationRv](https://github.com/zyyoona7/CustomViewSets/blob/master/images/paginationRv.gif)
