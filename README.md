@@ -8,9 +8,9 @@
 
 ![ZoomHoverView](https://github.com/zyyoona7/CustomViewSets/blob/master/images/zoomhover.gif)
 
-####Useage
+### Useage
 
-###ZoomHoverView
+### ZoomHoverView
 **layout:**
   ```xml
   <com.zyyoona7.customviewsets.zoom_hover.ZoomHoverView
