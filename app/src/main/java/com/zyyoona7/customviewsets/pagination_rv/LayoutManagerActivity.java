@@ -2,6 +2,7 @@ package com.zyyoona7.customviewsets.pagination_rv;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,6 +25,7 @@ public class LayoutManagerActivity extends BaseActivity {
     RecyclerView mRecyclerView;
 
     int currentVisiblePosition = 0;
+    int currentLastVisiblePosition = 0;
     LinkedList<String> list = new LinkedList<>();
 
 
@@ -32,7 +34,7 @@ public class LayoutManagerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 4, LinearLayoutManager.HORIZONTAL, false));
 //        mRecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
-        CustomAdapter adapter = new CustomAdapter();
+        final CustomAdapter adapter = new CustomAdapter();
         mRecyclerView.setAdapter(adapter);
         adapter.setNewData(createData());
 //        SnapHelper snapHelper = new PaginationSnapHelper(4);
@@ -41,35 +43,58 @@ public class LayoutManagerActivity extends BaseActivity {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                Log.e(TAG, "onScrollStateChanged: state=" + newState);
+//                Log.e(TAG, "onScrollStateChanged: state=" + newState);
                 if (RecyclerView.SCROLL_STATE_IDLE == newState) {
-                    int visiblePosition = ((GridLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
-                    int visibleCount = ((GridLayoutManager) recyclerView.getLayoutManager()).getChildCount();
-                    int itemCount = recyclerView.getLayoutManager().getItemCount();
-                    if (visibleCount + visiblePosition >= itemCount) {
-                        Log.e(TAG, "onScrolled: end");
-                        ((BaseQuickAdapter) recyclerView.getAdapter()).addData(createData());
-                    }
+//                    int visiblePosition = ((GridLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+//                    int visibleCount = ((GridLayoutManager) recyclerView.getLayoutManager()).getChildCount();
+//                    int itemCount = recyclerView.getLayoutManager().getItemCount();
+//                    if (visibleCount + visiblePosition >= itemCount) {
+//                        Log.e(TAG, "onScrolled: end");
+//                        ((BaseQuickAdapter) recyclerView.getAdapter()).addData(createData());
+//                    }
+                    Log.e(TAG, "onScrollStateChanged: stopped" );
                 }
             }
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                Log.e(TAG, "onScrolled: dx=" + dx + ",dy=" + dy);
+//                Log.e(TAG, "onScrolled: dx=" + dx + ",dy=" + dy);
                 int visiblePosition = ((GridLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+                int lastVisiblePosition = ((GridLayoutManager) recyclerView.getLayoutManager()).findLastVisibleItemPosition();
+//                Log.e(TAG, "onScrolled:first visible position=" + visiblePosition);
+//                Log.e(TAG, "onScrolled:last visible position=" + lastVisiblePosition);
+//                Log.e(TAG, "onScrolled:current visible position=" + currentVisiblePosition);
                 if (visiblePosition != currentVisiblePosition && visiblePosition > currentVisiblePosition) {
                     //next page
                     currentVisiblePosition = visiblePosition;
+//                    currentLastVisiblePosition = visiblePosition + 3;
 //                    onNextPage(currentVisiblePosition);
                     Log.e(TAG, "onScrolled: next page");
-                } else if (visiblePosition != currentVisiblePosition && visiblePosition < currentVisiblePosition) {
+                } else if (visiblePosition!= currentVisiblePosition && visiblePosition < currentVisiblePosition) {
                     //pre page
                     currentVisiblePosition = visiblePosition;
+//                    currentVisiblePosition = lastVisiblePosition - 3;
 //                    onPrePage(currentVisiblePosition);
                     Log.e(TAG, "onScrolled: pre page");
                 }
-
+                //最左边
+//                Log.e(TAG, "onScrolled: can Scroll Horizontal=" + recyclerView.canScrollHorizontally(-1));
+                if (!recyclerView.canScrollHorizontally(-1)) {
+                    //left refresh
+                }
+                //最右边
+//                Log.e(TAG, "onScrolled: can Scroll Horizontal=" + recyclerView.canScrollHorizontally(1));
+                if (!recyclerView.canScrollHorizontally(1)) {
+                    //right load more
+//                    int visiblePosition = ((GridLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+//                    int visibleCount = ((GridLayoutManager) recyclerView.getLayoutManager()).getChildCount();
+//                    int itemCount = recyclerView.getLayoutManager().getItemCount();
+//                    if (visibleCount + visiblePosition >= itemCount) {
+                        Log.e(TAG, "onScrolled: end");
+                        adapter.addData(createData());
+//                    }
+                }
             }
         });
     }

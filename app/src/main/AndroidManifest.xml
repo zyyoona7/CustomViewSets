@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zyyoona7.customviewsets">
+          package="com.zyyoona7.customviewsets">
 
     <application
         android:allowBackup="true"
@@ -9,17 +9,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".basic_operation.BasicOperationActivity" />
-        <activity android:name=".zoom_hover.ZoomHoverActivity" />
-        <activity android:name=".cover_flow.CoverFlowActivity" />
-        <activity android:name=".pagination_rv.LayoutManagerActivity"></activity>
-        <activity android:name=".custom_layout_manager.CardActivity"></activity>
+        <activity android:name=".basic_operation.BasicOperationActivity"/>
+        <activity android:name=".zoom_hover.ZoomHoverActivity"/>
+        <activity android:name=".cover_flow.CoverFlowActivity"/>
+        <activity android:name=".pagination_rv.LayoutManagerActivity"/>
+        <activity android:name=".custom_layout_manager.CardActivity"/>
+        <activity android:name=".heart.HeartActivity">
+        </activity>
     </application>
 
 </manifest>

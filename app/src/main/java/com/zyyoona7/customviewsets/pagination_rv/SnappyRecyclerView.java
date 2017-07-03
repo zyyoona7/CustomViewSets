@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -13,6 +14,7 @@ import android.view.View;
  * code from http://stackoverflow.com/questions/29134094/recyclerview-horizontal-scroll-snap-in-center
  */
 public class SnappyRecyclerView extends RecyclerView {
+    private static final String TAG = "SnappyRecyclerView";
 
     // Use it with a horizontal LinearLayoutManager
     // Based on http://stackoverflow.com/a/29171652/4034572
@@ -31,7 +33,6 @@ public class SnappyRecyclerView extends RecyclerView {
 
     @Override
     public boolean fling(int velocityX, int velocityY) {
-
         LinearLayoutManager linearLayoutManager = (LinearLayoutManager) getLayoutManager();
 
 //        int screenWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
