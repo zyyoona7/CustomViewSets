@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,4 +7,9 @@
     android:layout_height="match_parent"
     tools:context="com.zyyoona7.customviewsets.heart.HeartActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <com.zyyoona7.customviewsets.heart.HeartView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/heart_view"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

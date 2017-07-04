@@ -5,6 +5,7 @@ import android.widget.Button;
 
 import com.zyyoona7.customviewsets.basic_operation.BasicOperationActivity;
 import com.zyyoona7.customviewsets.custom_layout_manager.CardActivity;
+import com.zyyoona7.customviewsets.heart.HeartActivity;
 import com.zyyoona7.customviewsets.pagination_rv.LayoutManagerActivity;
 import com.zyyoona7.customviewsets.zoom_hover.ZoomHoverActivity;
 
@@ -22,6 +23,8 @@ public class MainActivity extends BaseActivity {
     Button mBtnCardLayoutManager;
     @BindView(R.id.btn_paging)
     Button mBtnPaging;
+    @BindView(R.id.btn_heart)
+    Button mBtnHeart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,11 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_paging)
     void pagingBtnClick() {
         goTo(LayoutManagerActivity.class);
+    }
+
+    @OnClick(R.id.btn_heart)
+    void heartBtnClick() {
+        goTo(HeartActivity.class);
     }
 
 }
