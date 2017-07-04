@@ -139,3 +139,6 @@ mZoomHoverGridView.setAdapter(mAdapter);
 ### Horizontal Pagination RecyclerView
 
   ![PaginationRv](https://github.com/zyyoona7/CustomViewSets/blob/master/images/paginationRv.gif)
+  
+### HeartView
+![](https://github.com/zyyoona7/CustomViewSets/blob/master/images/heart_view.gif)
